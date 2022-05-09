@@ -12,7 +12,7 @@
     "test:e2e": "npx cypress run"
   },
   "engines": {
-    "node": ">=14"
+    "node": "14.x"
   },
   "author": "Jami Kousa",
   "license": "ISC",
