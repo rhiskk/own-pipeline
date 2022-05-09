@@ -37,7 +37,7 @@ jobs:
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           healthcheck: 'https://own-pipeline.herokuapp.com/health'
           checkstring: 'ok'
-          #rollbackonhealthcheckfailed: true
+          rollbackonhealthcheckfailed: true
       # - name: success notification
       #   if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#skip') && success() }}
       #   uses: rjstone/discord-webhook-notify@v1
