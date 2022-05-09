@@ -9,6 +9,14 @@ const { PORT, inProduction } = require('@util/common')
 
 const app = express()
 
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
+
+app.get('/version', (req, res) => {
+  res.send('1') // change this string to ensure a new version deployed
+})
+
 // Require is here so we can delete it from cache when files change (*)
 app.use('/api', (req, res, next) => require('@root/server')(req, res, next)) // eslint-disable-line
 
@@ -61,12 +69,4 @@ if (!inProduction) {
 app.listen(PORT, () => {
   // eslint-disable-next-line
   console.log(`Started on port ${PORT}`)
-})
-
-app.get('/health', (req, res) => {
-  res.send('ok')
-})
-
-app.get('/version', (req, res) => {
-  res.send('1') // change this string to ensure a new version deployed
 })
