@@ -46,7 +46,7 @@ jobs:
           details: A new version of boilerplate deployed
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
       - name: error notification
-        if: ${{ failure() }}
+        if: ${{ github.event_name == 'push' failure() }}
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: error
